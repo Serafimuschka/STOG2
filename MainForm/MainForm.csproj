@@ -1,0 +1,42 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="Directions.resx" />
+    <EmbeddedResource Remove="Schools.resx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GeneratorV2\GeneratorV2.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Directions.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Directions.Designer.cs</LastGenOutput>
+    </Resource>
+    <Resource Include="Schools.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Schools.Designer.cs</LastGenOutput>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Directions.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Directions.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Schools.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Schools.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+</Project>
