@@ -70,6 +70,15 @@ namespace GeneratorV2.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Не в рот ебаться какое охуительно длинное и невероятно неочевидное название очередной ебучей тестовой дисциплины для никому нахуй не нужного генератора поебени.
+        /// </summary>
+        internal static string @__disc {
+            get {
+                return ResourceManager.GetString("__disc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Times New Roman.
         /// </summary>
         internal static string @__sto_font {

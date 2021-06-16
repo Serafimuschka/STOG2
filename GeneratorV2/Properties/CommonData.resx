@@ -146,13 +146,13 @@
     <value>(код и наименование)</value>
   </data>
   <data name="__sto_discA" xml:space="preserve">
-    <value>По дисциплине:</value>
+    <value>По дисциплине</value>
   </data>
   <data name="__sto_discB" xml:space="preserve">
-    <value>По междисциплинарному курсу:</value>
+    <value>По междисциплинарному курсу</value>
   </data>
   <data name="__sto_discC" xml:space="preserve">
-    <value>По модулю:</value>
+    <value>По модулю</value>
   </data>
   <data name="__sto_execF" xml:space="preserve">
     <value>Выполнила обучающаяся:</value>

@@ -142,7 +142,7 @@ namespace GeneratorV2.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на По дисциплине:.
+        ///   Ищет локализованную строку, похожую на По дисциплине.
         /// </summary>
         internal static string @__sto_discA {
             get {
@@ -151,7 +151,7 @@ namespace GeneratorV2.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на По междисциплинарному курсу:.
+        ///   Ищет локализованную строку, похожую на По междисциплинарному курсу.
         /// </summary>
         internal static string @__sto_discB {
             get {
@@ -160,7 +160,7 @@ namespace GeneratorV2.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на По модулю:.
+        ///   Ищет локализованную строку, похожую на По модулю.
         /// </summary>
         internal static string @__sto_discC {
             get {

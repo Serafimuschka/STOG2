@@ -129,6 +129,22 @@
     <value />
     <comment>Код направления подготовки</comment>
   </data>
+  <data name="__forename" xml:space="preserve">
+    <value>Абоба</value>
+    <comment>Имя</comment>
+  </data>
+  <data name="__patronymic" xml:space="preserve">
+    <value>Амогусович</value>
+    <comment>Отчество</comment>
+  </data>
+  <data name="__sto_g" xml:space="preserve">
+    <value>true</value>
+    <comment>Пол (по умолчанию мужской)</comment>
+  </data>
+  <data name="__surname" xml:space="preserve">
+    <value>Абобусов</value>
+    <comment>Фамилия</comment>
+  </data>
   <data name="__year" xml:space="preserve">
     <value />
     <comment>Обычно импортируется из системы</comment>

@@ -88,6 +88,42 @@ namespace GeneratorV2.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Абоба.
+        /// </summary>
+        internal static string @__forename {
+            get {
+                return ResourceManager.GetString("__forename", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Амогусович.
+        /// </summary>
+        internal static string @__patronymic {
+            get {
+                return ResourceManager.GetString("__patronymic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на true.
+        /// </summary>
+        internal static string @__sto_g {
+            get {
+                return ResourceManager.GetString("__sto_g", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Абобусов.
+        /// </summary>
+        internal static string @__surname {
+            get {
+                return ResourceManager.GetString("__surname", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на .
         /// </summary>
         internal static string @__year {

@@ -57,8 +57,13 @@ namespace MainForm
         {
 			
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+			Process.Start("GeneratorV2.exe", "--title 1");
+        }
     }
-	public class WindowHelper
+    public class WindowHelper
 	{
 		public Dictionary<string, string> directions;
 		public Dictionary<string, string> highSchools;
