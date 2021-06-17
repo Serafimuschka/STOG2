@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 using System.Resources;
 using System.Reflection;
 using System.Globalization;
+using Microsoft.Win32;
 using Word = Microsoft.Office.Interop.Word;
+
 using resCommon = GeneratorV2.Properties.CommonData;
 using resUser = GeneratorV2.Properties.UserData;
 using resDocument = GeneratorV2.Properties.DocumentData;
@@ -23,6 +25,23 @@ namespace GeneratorV2
 
 		static Word.Application app;
 		static Word.Document doc;
+
+		static string uSurname;
+		static string uForename;
+		static string uPatronymic;
+		static string uGender;
+		static string uCourse;
+		static string uGroup;
+		static string uCode;
+		static string uDirection;
+		static string uHighSchool;
+
+		static string dYear;
+		static string dDiscipline;
+		static string dTheme;
+		static string dPrepod;
+		static string dPrepodIniz;
+		static string dPrepodInfo;
 
 		static void Main(string[] args)
 		{
@@ -57,6 +76,32 @@ namespace GeneratorV2
 				Console.ReadKey();
 			}
 		}
+
+		static void GetRegistryKeys()
+        {
+			RegistryKey hkcu = Registry.CurrentUser;
+			RegistryKey stog = hkcu.OpenSubKey("STOGv2");
+
+			uSurname = stog.GetValue("rgUserSurname").ToString();
+			uForename = stog.GetValue("rgUserForename").ToString();
+			uPatronymic = stog.GetValue("rgUserPatronymic").ToString();
+			uGender = stog.GetValue("rgUserGender").ToString();
+			uCourse = stog.GetValue("rgUserCourse").ToString();
+			uGroup = stog.GetValue("rgUserGroup").ToString();
+			uCode = stog.GetValue("rgUserDirectionCode").ToString();
+			uDirection = stog.GetValue("rgUserDirectionName").ToString();
+			uHighSchool = stog.GetValue("rgUserHighSchool").ToString();
+
+			dYear = stog.GetValue("rgDocYear").ToString();
+			dDiscipline = stog.GetValue("rgDocLastDisc").ToString();
+			dTheme = stog.GetValue("rgDocLastTheme").ToString();
+			dPrepod = stog.GetValue("rgDocLastPrepod").ToString();
+			dPrepodIniz = stog.GetValue("rgDocLastPrepodIniz").ToString();
+			dPrepodInfo = stog.GetValue("rgDocLastPrepodInfo").ToString();
+
+			stog.Close();
+			hkcu.Close();
+        }
 
 		// Shows help message.
 		static void Help()
@@ -135,7 +180,7 @@ namespace GeneratorV2
 					break;
 				case 11:
 					__sto_work = "Курсовой проект";
-					MakeTitleGroupOne(__sto_work);
+					MakeTitleGroupTwo(__sto_work);
 					break;
 				default:
 					throw new InvalidOperationException();
@@ -143,9 +188,13 @@ namespace GeneratorV2
 		}
 
 		// Makes title page from group 0n
+		// __sto_work :: type of work (essay, abstract, etc.)
+		// __sto_type :: type of discipline (discipline, module, etc.)
 		// Returns nothing. Launching Word application.
 		static void MakeTitleGroupOne(string __sto_work, int __sto_type = 0)
 		{
+			GetRegistryKeys();
+
 			// Preparing block:
 			string __sto_font = resDocument.__sto_font;
 			string __sto_null = " ";
@@ -161,11 +210,11 @@ namespace GeneratorV2
 
 			string __sto_exec;
 
-			var gender = Convert.ToBoolean(resUser.__sto_g);
+			var gender = Convert.ToBoolean(uGender);
 			if (gender) __sto_exec = resCommon.__sto_execM;
 			else __sto_exec = resCommon.__sto_execF;
 
-			var disc = resDocument.__disc;
+			var disc = dDiscipline;
 			var len = disc.Length;
 			switch (__sto_type)
 			{
@@ -184,6 +233,7 @@ namespace GeneratorV2
 						}
 						else __sto_discB = disc.Substring(64);
 					}
+					else __sto_discA = disc;
 
 					break;
 				case 1:
@@ -201,6 +251,7 @@ namespace GeneratorV2
 						}
 						else __sto_discB = disc.Substring(53);
 					}
+					else __sto_discA = disc;
 
 					break;
 				case 2:
@@ -218,6 +269,7 @@ namespace GeneratorV2
 						}
 						else __sto_discB = disc.Substring(66);
 					}
+					else __sto_discA = disc;
 
 					break;
 				default:
@@ -235,6 +287,7 @@ namespace GeneratorV2
 						}
 						else __sto_discB = disc.Substring(64);
 					}
+					else __sto_discA = disc;
 
 					break;
 			}
@@ -251,8 +304,6 @@ namespace GeneratorV2
 			Word.WdParagraphAlignment alignJustify = 
 				Word.WdParagraphAlignment.wdAlignParagraphJustify;
 
-			Word.WdBorderType bdLeft = Word.WdBorderType.wdBorderLeft;
-			Word.WdBorderType bdRight = Word.WdBorderType.wdBorderRight;
 			Word.WdBorderType bdTop = Word.WdBorderType.wdBorderTop;
 			Word.WdBorderType bdBottom = Word.WdBorderType.wdBorderBottom;
 
@@ -345,7 +396,7 @@ namespace GeneratorV2
 			para.Range.Font.Size = __sto_size;
 			para.Range.Font.Bold = 0;
 			para.Range.Font.Underline = Word.WdUnderline.wdUnderlineSingle;
-			para.Range.Text = resCommon.__hs;
+			para.Range.Text = uHighSchool;
 			para.Format.Alignment = alignCenter;
 			para.Format.SpaceAfter = 0;
 			para.Format.SpaceBefore = 0;
@@ -445,12 +496,14 @@ namespace GeneratorV2
 			table.Cell(4, 1).Width = 54.99213F;
 			table.Cell(4, 2).Width = 437.66929F;
 			table.Cell(4, 2).Range.Borders[bdBottom].LineStyle = __sto_line;
-			table.Cell(4, 2).Range.Text = resDocument.__theme;
+			table.Cell(4, 2).Range.Text = dTheme;
 			table.Cell(4, 2).Range.ParagraphFormat.Alignment = alignCenter;
 			table.Cell(4, 2).VerticalAlignment =
 				Word.WdCellVerticalAlignment.wdCellAlignVerticalBottom;
 
 			table.Cell(5, 2).Merge(table.Cell(5, 1));
+			table.Cell(5, 1).Range.Font.Size = (__sto_size + 1);
+			table.Cell(5, 1).Range.Text = " \n";
 			table.Cell(5, 1).Width = 492.66142F;
 			table.Cell(1, 2).Range.Borders[bdBottom].LineStyle = __sto_line;
 
@@ -476,8 +529,8 @@ namespace GeneratorV2
 
 			table.Cell(6, 2).Range.Font.Size = __sto_size;
 			table.Cell(6, 2).Range.Text = __sto_exec + '\n' +
-				resUser.__surname + ' ' + resUser.__forename + 
-				' ' + resUser.__patronymic;
+				uSurname + ' ' + uForename + 
+				' ' + uPatronymic;
 			table.Cell(6, 2).Range.ParagraphFormat.LineSpacingRule = 
 				Word.WdLineSpacing.wdLineSpaceSingle;
 
@@ -491,7 +544,7 @@ namespace GeneratorV2
 			table.Cell(8, 2).Range.Font.Superscript = 0;
 			table.Cell(8, 2).Range.Text = 
 				resCommon.__sto_dirA + '\n' + 
-				resUser.__directionB + ' ' + resUser.__directionA;
+				uCode + ' ' + uDirection;
 			table.Cell(8, 2).Range.ParagraphFormat.LineSpacingRule = 
 				Word.WdLineSpacing.wdLineSpaceSingle;
 			table.Cell(8, 2).Range.Borders[bdBottom].LineStyle = __sto_line;
@@ -510,7 +563,7 @@ namespace GeneratorV2
 				Word.WdCellVerticalAlignment.wdCellAlignVerticalBottom;
 			table.Cell(10, 2).Range.Borders[bdBottom].LineStyle = __sto_line;
 			table.Cell(10, 2).Range.Text = 
-				resCommon.__sto_course + ' ' + resUser.__course;
+				resCommon.__sto_course + ' ' + uCourse;
 			table.Cell(10, 2).Height = 13.6063F;
 
 			table.Cell(11, 2).Range.Font.Size = __sto_size;
@@ -520,7 +573,7 @@ namespace GeneratorV2
 			table.Cell(11, 2).VerticalAlignment = 
 				Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
 			table.Cell(11, 2).Range.Text = 
-				resCommon.__sto_group + ' ' + resUser.__group;
+				resCommon.__sto_group + ' ' + uGroup;
 			table.Cell(11, 2).Height = 13.6063F;
 
 			table.Cell(12, 2).Range.Font.Size = __sto_size;
@@ -530,7 +583,7 @@ namespace GeneratorV2
 			table.Cell(12, 2).VerticalAlignment = 
 				Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
 			table.Cell(12, 2).Range.Text = '\n' + resCommon.__sto_advA + ":\n" +
-				resDocument.__adv + ", " + resDocument.__advr;
+				dPrepod + ", " + dPrepodInfo;
 
 			table.Cell(13, 1).Range.Font.Size = __sto_size;
 			table.Cell(13, 1).Range.ParagraphFormat.Alignment = alignLeft;
@@ -540,6 +593,126 @@ namespace GeneratorV2
 			table.Cell(13, 2).Range.Font.Size = __sto_size;
 			table.Cell(13, 2).Range.ParagraphFormat.Alignment = alignCenter;
 			table.Cell(13, 2).Range.Text = resCommon.__sto_prepod;
+
+			range = doc.Bookmarks.get_Item(ref oEndOfDoc).Range;
+			table = doc.Content.Tables.Add
+			(
+				range, 
+				4, 5, 
+				ref oMissing, ref oMissing
+			);
+			table.Rows.LeftIndent = 0.0F;
+			table.Range.Font.Name = __sto_font;
+
+			table.Cell(15, 3).Range.Borders[bdTop].LineStyle = __sto_line;
+			table.Cell(15, 5).Range.Borders[bdTop].LineStyle = __sto_line;
+
+			for (int i = 14; i < 18; i++)
+			{
+				table.Cell(i, 1).Height = 13.6063F;
+				table.Cell(i, 1).Width = 118.77F;
+				table.Cell(i, 2).Width = 14.17F;
+				table.Cell(i, 3).Width = 177.17F;
+				table.Cell(i, 4).Width = 21.26F;
+				table.Cell(i, 5).Width = 155.91F;
+			}
+
+			table.Cell(14, 1).Range.Font.Size = __sto_size;
+			table.Cell(14, 1).Range.Text = resCommon.__sto_markA;
+
+			table.Cell(16, 1).Range.Font.Size = __sto_size;
+			table.Cell(16, 1).Range.Text = resCommon.__sto_advA;
+
+			table.Cell(15, 4).Range.Font.Size = __sto_size;
+			table.Cell(15, 4).Range.Font.Superscript = 1;
+			table.Cell(15, 4).Range.ParagraphFormat.Alignment = alignCenter;
+			table.Cell(15, 4).Range.Text = __sto_null;
+
+			table.Cell(16, 4).Range.Font.Size = __sto_size;
+			table.Cell(16, 4).Range.Font.Superscript = 1;
+			table.Cell(16, 4).Range.ParagraphFormat.Alignment = alignCenter;
+			table.Cell(16, 4).Range.Text = __sto_null;
+
+			table.Cell(17, 4).Range.Font.Size = __sto_size;
+			table.Cell(17, 4).Range.Font.Superscript = 1;
+			table.Cell(17, 4).Range.ParagraphFormat.Alignment = alignCenter;
+			table.Cell(17, 4).Range.Text = __sto_null;
+
+			table.Cell(15, 3).Range.Font.Size = __sto_size;
+			table.Cell(15, 3).Range.Font.Superscript = 1;
+			table.Cell(15, 3).Range.ParagraphFormat.Alignment = alignCenter;
+			table.Cell(15, 3).Range.Text = resCommon.__sto_markB;
+
+			table.Cell(15, 5).Range.Font.Size = __sto_size;
+			table.Cell(15, 5).Range.Font.Superscript = 1;
+			table.Cell(15, 5).Range.ParagraphFormat.Alignment = alignCenter;
+			table.Cell(15, 5).Range.Text = resCommon.__sto_date;
+
+			table.Cell(17, 3).Range.Font.Size = __sto_size;
+			table.Cell(17, 3).Range.Font.Superscript = 1;
+			table.Cell(17, 3).Range.ParagraphFormat.Alignment = alignCenter;
+			table.Cell(17, 3).Range.Text = resCommon.__sto_advB;
+
+			table.Cell(16, 5).Range.Font.Size = __sto_size;
+			table.Cell(16, 5).Range.Font.Superscript = 0;
+			table.Cell(16, 5).Range.ParagraphFormat.Alignment = alignCenter;
+			table.Cell(16, 5).Range.Text = dPrepodIniz;
+
+			table.Cell(17, 5).Range.Font.Size = __sto_size;
+			table.Cell(17, 5).Range.Font.Superscript = 1;
+			table.Cell(17, 5).Range.ParagraphFormat.Alignment = alignCenter;
+			table.Cell(17, 5).Range.Text = resCommon.__sto_advC;
+
+			table.Cell(16, 5).Range.Borders[bdBottom].LineStyle = __sto_line;
+			table.Cell(16, 3).Range.Borders[bdBottom].LineStyle = __sto_line;
+
+			para = doc.Content.Paragraphs.Add(ref oMissing);
+			para.Range.Font.Name = __sto_font;
+			para.Range.Font.Size = __sto_size;
+			para.Range.Font.Superscript = 0;
+			para.Range.Text = __sto_null;
+			para.Format.Alignment = alignCenter;
+			para.Format.SpaceAfter = 0;
+			para.Format.SpaceBefore = 0;
+			para.Format.LineSpacingRule = Word.WdLineSpacing.wdLineSpace1pt5;
+			para.Range.InsertParagraphAfter();
+
+			para = doc.Content.Paragraphs.Add(ref oMissing);
+			para.Range.Font.Name = __sto_font;
+			para.Range.Font.Size = __sto_size;
+			para.Range.Font.Superscript = 0;
+			para.Range.Text = __sto_null;
+			para.Format.Alignment = alignCenter;
+			para.Format.SpaceAfter = 0;
+			para.Format.SpaceBefore = 0;
+			para.Format.LineSpacingRule = Word.WdLineSpacing.wdLineSpace1pt5;
+			para.Range.InsertParagraphAfter();
+
+			para = doc.Content.Paragraphs.Add(ref oMissing);
+			para.Range.Font.Name = __sto_font;
+			para.Range.Font.Size = __sto_size;
+			para.Range.Font.Superscript = 0;
+			para.Range.Text = resUser.__city + ' ' + dYear;
+			para.Format.Alignment = alignCenter;
+			para.Format.SpaceAfter = 0;
+			para.Format.SpaceBefore = 0;
+			para.Range.InsertParagraphAfter();
+
+			object oCollapseEnd = Word.WdCollapseDirection.wdCollapseEnd;
+			object oPageBreak = Word.WdBreakType.wdPageBreak;
+
+			range = doc.Bookmarks.get_Item(ref oEndOfDoc).Range;
+			range.Collapse(ref oCollapseEnd);
+			range.InsertBreak(ref oPageBreak);
 		}
+
+		// Makes title page from group 1n
+		// __sto_work :: type of work (course work / course project)
+		// group	  :: type of work (group / single)
+		// Returns nothing. Launching Word application.
+		static void MakeTitleGroupTwo(string __sto_work, bool group = false)
+        {
+
+        }
 	}
 }

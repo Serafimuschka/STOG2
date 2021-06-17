@@ -117,40 +117,43 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="__city" xml:space="preserve">
+    <value>Архангельск</value>
+  </data>
   <data name="__course" xml:space="preserve">
     <value />
-    <comment>Заполняется в форме пользователя</comment>
+    <comment>Obsolete</comment>
   </data>
   <data name="__directionA" xml:space="preserve">
     <value />
-    <comment>Направление подготовки</comment>
+    <comment>Obsolete</comment>
   </data>
   <data name="__directionB" xml:space="preserve">
     <value />
-    <comment>Код направления подготовки</comment>
+    <comment>Obsolete</comment>
   </data>
   <data name="__forename" xml:space="preserve">
-    <value>Абоба</value>
-    <comment>Имя</comment>
+    <value />
+    <comment>Obsolete</comment>
   </data>
   <data name="__group" xml:space="preserve">
-    <value>228420</value>
-    <comment>Группа</comment>
+    <value />
+    <comment>Obsolete</comment>
   </data>
   <data name="__patronymic" xml:space="preserve">
-    <value>Амогусович</value>
-    <comment>Отчество</comment>
+    <value />
+    <comment>Obsolete</comment>
   </data>
   <data name="__sto_g" xml:space="preserve">
     <value>true</value>
-    <comment>Пол (по умолчанию мужской)</comment>
+    <comment>Obsolete</comment>
   </data>
   <data name="__surname" xml:space="preserve">
-    <value>Абобусов</value>
-    <comment>Фамилия</comment>
+    <value />
+    <comment>Obsolete</comment>
   </data>
   <data name="__year" xml:space="preserve">
     <value />
-    <comment>Обычно импортируется из системы</comment>
+    <comment>Obsolete</comment>
   </data>
 </root>

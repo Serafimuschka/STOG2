@@ -118,16 +118,20 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="__adv" xml:space="preserve">
-    <value>/ Руководитель /</value>
-    <comment>Заполняется в основной форме</comment>
+    <value />
+    <comment>Obsolete</comment>
   </data>
   <data name="__advr" xml:space="preserve">
     <value />
-    <comment>Должность / учёная степень / звание и т.д.</comment>
+    <comment>Obsolete</comment>
+  </data>
+  <data name="__advs" xml:space="preserve">
+    <value />
+    <comment>Obsolete</comment>
   </data>
   <data name="__disc" xml:space="preserve">
-    <value>Не в рот ебаться какое охуительно длинное и невероятно неочевидное название очередной ебучей тестовой дисциплины для никому нахуй не нужного генератора поебени</value>
-    <comment>Заполняется в основной форме</comment>
+    <value />
+    <comment>Obsolete</comment>
   </data>
   <data name="__sto_font" xml:space="preserve">
     <value>Times New Roman</value>
@@ -162,7 +166,7 @@
     <comment>Отступ до параграфа, пт</comment>
   </data>
   <data name="__theme" xml:space="preserve">
-    <value>/ Тема работы /</value>
-    <comment>Заполняется в основной форме</comment>
+    <value />
+    <comment>Obsolete</comment>
   </data>
 </root>

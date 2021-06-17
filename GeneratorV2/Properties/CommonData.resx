@@ -118,8 +118,8 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="__hs" xml:space="preserve">
-    <value>/ Высшая школа /</value>
-    <comment>Заполняется в основной форме</comment>
+    <value />
+    <comment>Obsolete</comment>
   </data>
   <data name="__ministry" xml:space="preserve">
     <value>Министерство науки и высшего образования Российской Федерации</value>
