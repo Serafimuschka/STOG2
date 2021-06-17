@@ -465,14 +465,15 @@ namespace GeneratorV2
 			table.Range.Font.Name = __sto_font;
 
 			for (int i = 6; i < 13; i++)
-            {
+			{
 				table.Cell(i, 1).Width = 203.81F;
+				table.Cell(i, 2).Width = 283.46F;
 				table.Cell(i, 1).Range.ParagraphFormat.LeftIndent = 35.34F;
-            }
+			}
 
 			table.Cell(13, 1).Width = 203.81F;
+			table.Cell(13, 2).Width = 283.46F;
 
-			table.Cell(6, 2).Width = 283.46F;
 			table.Cell(6, 2).Range.Font.Size = __sto_size;
 			table.Cell(6, 2).Range.Text = __sto_exec + '\n' +
 				resUser.__surname + ' ' + resUser.__forename + 
@@ -480,6 +481,65 @@ namespace GeneratorV2
 			table.Cell(6, 2).Range.ParagraphFormat.LineSpacingRule = 
 				Word.WdLineSpacing.wdLineSpaceSingle;
 
+			table.Cell(7, 2).Range.Font.Superscript = 1;
+			table.Cell(7, 2).Range.ParagraphFormat.Alignment = alignCenter;
+			table.Cell(7, 2).Range.Borders[bdTop].LineStyle = __sto_line;
+			table.Cell(7, 2).Range.Text = resCommon.__sto_stud;
+			table.Cell(7, 2).Height = 13.6063F;
+
+			table.Cell(8, 2).Range.Font.Size = __sto_size;
+			table.Cell(8, 2).Range.Font.Superscript = 0;
+			table.Cell(8, 2).Range.Text = 
+				resCommon.__sto_dirA + '\n' + 
+				resUser.__directionB + ' ' + resUser.__directionA;
+			table.Cell(8, 2).Range.ParagraphFormat.LineSpacingRule = 
+				Word.WdLineSpacing.wdLineSpaceSingle;
+			table.Cell(8, 2).Range.Borders[bdBottom].LineStyle = __sto_line;
+
+			table.Cell(9, 2).Range.Font.Size = __sto_size;
+			table.Cell(9, 2).Range.Font.Superscript = 1;
+			table.Cell(9, 2).Range.ParagraphFormat.Alignment = alignCenter;
+			table.Cell(9, 2).Range.Text = resCommon.__sto_dirB;
+			table.Cell(9, 2).Height = 13.6063F;
+
+			table.Cell(10, 2).Range.Font.Size = __sto_size;
+			table.Cell(10, 2).Range.Font.Superscript = 0;
+			table.Cell(10, 2).Range.ParagraphFormat.LineSpacingRule = 
+				Word.WdLineSpacing.wdLineSpaceSingle;
+			table.Cell(10, 2).VerticalAlignment = 
+				Word.WdCellVerticalAlignment.wdCellAlignVerticalBottom;
+			table.Cell(10, 2).Range.Borders[bdBottom].LineStyle = __sto_line;
+			table.Cell(10, 2).Range.Text = 
+				resCommon.__sto_course + ' ' + resUser.__course;
+			table.Cell(10, 2).Height = 13.6063F;
+
+			table.Cell(11, 2).Range.Font.Size = __sto_size;
+			table.Cell(11, 2).Range.ParagraphFormat.LineSpacingRule =
+				Word.WdLineSpacing.wdLineSpaceSingle;
+			table.Cell(11, 2).Range.Borders[bdBottom].LineStyle = __sto_line;
+			table.Cell(11, 2).VerticalAlignment = 
+				Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+			table.Cell(11, 2).Range.Text = 
+				resCommon.__sto_group + ' ' + resUser.__group;
+			table.Cell(11, 2).Height = 13.6063F;
+
+			table.Cell(12, 2).Range.Font.Size = __sto_size;
+			table.Cell(12, 2).Range.ParagraphFormat.LineSpacingRule =
+				Word.WdLineSpacing.wdLineSpaceSingle;
+			table.Cell(12, 2).Range.Borders[bdBottom].LineStyle = __sto_line;
+			table.Cell(12, 2).VerticalAlignment = 
+				Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+			table.Cell(12, 2).Range.Text = '\n' + resCommon.__sto_advA + ":\n" +
+				resDocument.__adv + ", " + resDocument.__advr;
+
+			table.Cell(13, 1).Range.Font.Size = __sto_size;
+			table.Cell(13, 1).Range.ParagraphFormat.Alignment = alignLeft;
+			table.Cell(13, 1).Range.Text = " \n \n";
+
+			table.Cell(13, 2).Range.Font.Superscript = 1;
+			table.Cell(13, 2).Range.Font.Size = __sto_size;
+			table.Cell(13, 2).Range.ParagraphFormat.Alignment = alignCenter;
+			table.Cell(13, 2).Range.Text = resCommon.__sto_prepod;
 		}
 	}
 }

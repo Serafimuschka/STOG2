@@ -97,6 +97,15 @@ namespace GeneratorV2.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на 228420.
+        /// </summary>
+        internal static string @__group {
+            get {
+                return ResourceManager.GetString("__group", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Амогусович.
         /// </summary>
         internal static string @__patronymic {

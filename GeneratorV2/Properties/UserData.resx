@@ -133,6 +133,10 @@
     <value>Абоба</value>
     <comment>Имя</comment>
   </data>
+  <data name="__group" xml:space="preserve">
+    <value>228420</value>
+    <comment>Группа</comment>
+  </data>
   <data name="__patronymic" xml:space="preserve">
     <value>Амогусович</value>
     <comment>Отчество</comment>

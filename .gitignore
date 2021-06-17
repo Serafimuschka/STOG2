@@ -12,3 +12,4 @@ GeneratorV2/obj/Debug/GeneratorV2.Properties.UserData.resources
 GeneratorV2/obj/Debug/GeneratorV2.Properties.DocumentData.resources
 GeneratorV2/obj/Debug/GeneratorV2.Properties.CommonData.resources
 GeneratorV2/obj/Debug/GeneratorV2.csproj.FileListAbsolute.txt
+*.v2
