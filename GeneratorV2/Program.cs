@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Resources;
 using System.Reflection;
-using System.Globalization;
 using Microsoft.Win32;
 using Word = Microsoft.Office.Interop.Word;
 
@@ -131,6 +127,8 @@ namespace GeneratorV2
 			else Environment.Exit(0);
 		}
 
+		// Reads values from the registry.
+		// Returns nothing. Unlimited use.
 		static void GetRegistryKeys()
 		{
 			Console.ForegroundColor = ConsoleColor.Yellow;
@@ -192,6 +190,9 @@ namespace GeneratorV2
 		}
 
 		// Generates title from internal pattern.
+		// pattern	  :: work pattern (essay, report, etc.)
+		// model	  :: pattern model (__sto_type)
+		// Returns nothing. Delegates task to other funcs.
 		static void Title(int pattern, int model)
 		{
 			/*
@@ -258,7 +259,7 @@ namespace GeneratorV2
 			}
 		}
 
-		// Makes title page from group 0n
+		// Makes title page from group 0n.
 		// __sto_work :: type of work (essay, abstract, etc.)
 		// __sto_type :: type of discipline (discipline, module, etc.)
 		// Returns nothing. Launching Word application.
@@ -787,7 +788,7 @@ namespace GeneratorV2
 			);
 		}
 
-		// Makes title page from group 1n
+		// Makes title page from group 1n.
 		// __sto_work :: type of work (course work / course project)
 		// group	  :: type of work (group / single)
 		// Returns nothing. Launching Word application.
@@ -1107,7 +1108,7 @@ namespace GeneratorV2
 			para.Range.Font.Size = (__sto_size + 3);
 			para.Range.Font.Bold = 1;
 			para.Range.Text = __sto_null;
-			para.Format.Alignment = alignCenter;
+			para.Format.Alignment = alignJustify;
 			para.Format.SpaceAfter = 0;
 			para.Format.SpaceBefore = 0;
 			para.Range.InsertParagraphAfter();
@@ -1245,14 +1246,19 @@ namespace GeneratorV2
 			table.Cell(2, 3).Range.Borders[bdTop].LineStyle = __sto_line;
 			table.Cell(2, 5).Range.Borders[bdTop].LineStyle = __sto_line;
 
-			for (int i = 1; i < 4; i++)
+			for (int i = 1; i < 5; i++)
 			{
-				table.Cell(i, 1).Height = 13.6063F;
-				table.Cell(i, 1).Width = 118.77F;
-				table.Cell(i, 2).Width = 14.17F;
-				table.Cell(i, 3).Width = 177.17F;
-				table.Cell(i, 4).Width = 21.26F;
-				table.Cell(i, 5).Width = 155.91F;
+				table.Cell(i, 1).Height = 27.77953F;
+				table.Cell(i, 2).Height = 13.6063F;
+				table.Cell(i, 3).Height = 13.6063F;
+				table.Cell(i, 4).Height = 13.6063F;
+				table.Cell(i, 5).Height = 13.6063F;
+
+				table.Cell(i, 1).Width = 189.6378F;
+				table.Cell(i, 2).Width = 14.1732F;
+				table.Cell(i, 3).Width = 141.732F;
+				table.Cell(i, 4).Width = 14.1732F;
+				table.Cell(i, 5).Width = 127.559F;
 			}
 
 			table.Cell(1, 1).Range.Font.Size = __sto_size;
@@ -1306,7 +1312,29 @@ namespace GeneratorV2
 
 			para = doc.Content.Paragraphs.Add(ref oMissing);
 			para.Range.Font.Name = __sto_font;
-			para.Range.Font.Size = __sto_size;
+			para.Range.Font.Size = (__sto_size - 1);
+			para.Range.Font.Superscript = 0;
+			para.Range.Text = __sto_null;
+			para.Format.Alignment = alignJustify;
+			para.Format.SpaceAfter = 0;
+			para.Format.SpaceBefore = 0;
+			para.Format.LineSpacingRule = Word.WdLineSpacing.wdLineSpaceSingle;
+			para.Range.InsertParagraphAfter();
+
+			para = doc.Content.Paragraphs.Add(ref oMissing);
+			para.Range.Font.Name = __sto_font;
+			para.Range.Font.Size = (__sto_size - 1);
+			para.Range.Font.Superscript = 0;
+			para.Range.Text = __sto_null;
+			para.Format.Alignment = alignJustify;
+			para.Format.SpaceAfter = 0;
+			para.Format.SpaceBefore = 0;
+			para.Format.LineSpacingRule = Word.WdLineSpacing.wdLineSpaceSingle;
+			para.Range.InsertParagraphAfter();
+
+			para = doc.Content.Paragraphs.Add(ref oMissing);
+			para.Range.Font.Name = __sto_font;
+			para.Range.Font.Size = (__sto_size + 1);
 			para.Range.Font.Superscript = 0;
 			para.Range.Text = __sto_null;
 			para.Format.Alignment = alignCenter;
@@ -1317,18 +1345,7 @@ namespace GeneratorV2
 
 			para = doc.Content.Paragraphs.Add(ref oMissing);
 			para.Range.Font.Name = __sto_font;
-			para.Range.Font.Size = __sto_size;
-			para.Range.Font.Superscript = 0;
-			para.Range.Text = __sto_null;
-			para.Format.Alignment = alignCenter;
-			para.Format.SpaceAfter = 0;
-			para.Format.SpaceBefore = 0;
-			para.Format.LineSpacingRule = Word.WdLineSpacing.wdLineSpace1pt5;
-			para.Range.InsertParagraphAfter();
-
-			para = doc.Content.Paragraphs.Add(ref oMissing);
-			para.Range.Font.Name = __sto_font;
-			para.Range.Font.Size = __sto_size;
+			para.Range.Font.Size = (__sto_size + 1);
 			para.Range.Font.Superscript = 0;
 			para.Range.Text = __sto_null;
 			para.Format.Alignment = alignCenter;
