@@ -17,12 +17,27 @@ namespace MainForm
 	public partial class Window : Form
 	{
 		static WindowHelper helper = new WindowHelper();
+		static readonly string pmTitle = "--title ";
+		string launchParams;
+		string launchArgs;
+		string customTask = "";
+
 		public Window()
 		{
 			InitializeComponent();
 			try
 			{
+				helper.RegistryDownloadData();
+
 				CreateMenu();
+
+				workBox.SelectedIndex = 0;
+				disciplineBox.SelectedIndex = 0;
+				discipline.Text = helper.di.diDiscipline;
+				theme.Text = helper.di.diTheme;
+				prepod.Text = helper.di.diPrepod;
+				prepodIniz.Text = helper.di.diPrepodIniz;
+				prepodInfo.Text = helper.di.diPrepodInfo;
 			}
 			catch (Exception e)
 			{
@@ -42,9 +57,7 @@ namespace MainForm
 			 * About
 			 */
 			ToolStripMenuItem item = new ToolStripMenuItem("Пользователь");
-			item.DropDownItems.Add("Учётная запись");
-			item.DropDownItems.Add("Верификация");
-			item.DropDownItems[0].Click += Account_Click;
+			item.Click += Account_Click;
 			MainMenu.Items.Add(item);
 
 			item = new ToolStripMenuItem("О программе");
@@ -64,9 +77,76 @@ namespace MainForm
 			AccountModify form = new AccountModify();
 			form.Show();
 		}
-	}
 
-	public struct UserInfo
+		private void execute_Click(object sender, EventArgs e)
+		{
+			helper.RegistryUpdateData();
+
+			if (customTask.Length > 0)
+				Process.Start("GeneratorV2.exe", customTask);
+			else
+				Process.Start("GeneratorV2.exe", launchParams + launchArgs);
+		}
+
+		private void wbChanged(object sender, EventArgs e)
+		{
+			switch (workBox.SelectedIndex)
+			{
+				case 0:
+					launchParams = (pmTitle + '1');
+					break;
+				case 1:
+					launchParams = (pmTitle + '2');
+					break;
+				case 2:
+					launchParams = (pmTitle + '3');
+					break;
+				case 3:
+					launchParams = (pmTitle + '4');
+					break;
+				case 4:
+					launchParams = (pmTitle + "11");
+					break;
+			}
+		}
+
+		private void dbChanged(object sender, EventArgs e)
+		{
+			launchArgs = ' ' + disciplineBox.SelectedIndex.ToString();
+		}
+
+        private void discChanged(object sender, EventArgs e)
+        {
+			helper.di.diDiscipline = discipline.Text;
+        }
+
+        private void themeChanged(object sender, EventArgs e)
+        {
+			helper.di.diTheme = theme.Text;
+        }
+
+        private void advisorChanged(object sender, EventArgs e)
+        {
+			helper.di.diPrepod = prepod.Text;
+        }
+
+        private void inizChanged(object sender, EventArgs e)
+        {
+			helper.di.diPrepodIniz = prepodIniz.Text;
+        }
+
+        private void infoChanged(object sender, EventArgs e)
+        {
+			helper.di.diPrepodInfo = prepodInfo.Text;
+        }
+
+        private void argsChanged(object sender, EventArgs e)
+        {
+			customTask = args.Text;
+        }
+    }
+
+    public struct UserInfo
 	{
 		public string uiForename;
 		public string uiSurname;
@@ -287,8 +367,8 @@ namespace MainForm
 		}
 
 		public void RegistryClose()
-        {
+		{
 			this.hkcu.Close();
-        }
+		}
 	}
 }

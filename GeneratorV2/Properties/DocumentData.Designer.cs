@@ -61,7 +61,7 @@ namespace GeneratorV2.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на / Руководитель /.
+        ///   Ищет локализованную строку, похожую на .
         /// </summary>
         internal static string @__adv {
             get {
@@ -79,7 +79,16 @@ namespace GeneratorV2.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Не в рот ебаться какое охуительно длинное и невероятно неочевидное название очередной ебучей тестовой дисциплины для никому нахуй не нужного генератора поебени.
+        ///   Ищет локализованную строку, похожую на .
+        /// </summary>
+        internal static string @__advs {
+            get {
+                return ResourceManager.GetString("__advs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на .
         /// </summary>
         internal static string @__disc {
             get {
@@ -160,7 +169,7 @@ namespace GeneratorV2.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на / Тема работы /.
+        ///   Ищет локализованную строку, похожую на .
         /// </summary>
         internal static string @__theme {
             get {

@@ -13,3 +13,16 @@ GeneratorV2/obj/Debug/GeneratorV2.Properties.DocumentData.resources
 GeneratorV2/obj/Debug/GeneratorV2.Properties.CommonData.resources
 GeneratorV2/obj/Debug/GeneratorV2.csproj.FileListAbsolute.txt
 *.v2
+/MainForm/obj/Release/netcoreapp3.1/MainForm.designer.runtimeconfig.json
+/MainForm/obj/Release/netcoreapp3.1/MainForm.designer.deps.json
+*.json
+*.props
+*.targets
+*.resources
+*.CopyComplete
+*.config
+/GeneratorV2/obj/Release/GeneratorV2.csproj.FileListAbsolute.txt
+/GeneratorV2/obj/Release/.NETFramework,Version=v4.8.AssemblyAttributes.cs
+/GeneratorV2/obj/Debug/.NETFramework,Version=v4.8.AssemblyAttributes.cs
+/MainForm/obj/Release/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs
+/MainForm/obj/Debug/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs

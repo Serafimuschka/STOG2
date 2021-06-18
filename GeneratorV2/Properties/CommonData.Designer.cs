@@ -61,7 +61,7 @@ namespace GeneratorV2.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на / Высшая школа /.
+        ///   Ищет локализованную строку, похожую на .
         /// </summary>
         internal static string @__hs {
             get {
@@ -219,6 +219,15 @@ namespace GeneratorV2.Properties {
         internal static string @__sto_markB {
             get {
                 return ResourceManager.GetString("__sto_markB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Признать, что проект выполнен и защищен с отметкой    .
+        /// </summary>
+        internal static string @__sto_markC {
+            get {
+                return ResourceManager.GetString("__sto_markC", resourceCulture);
             }
         }
         

@@ -61,6 +61,15 @@ namespace GeneratorV2.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Архангельск.
+        /// </summary>
+        internal static string @__city {
+            get {
+                return ResourceManager.GetString("__city", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на .
         /// </summary>
         internal static string @__course {
@@ -88,7 +97,7 @@ namespace GeneratorV2.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Абоба.
+        ///   Ищет локализованную строку, похожую на .
         /// </summary>
         internal static string @__forename {
             get {
@@ -97,7 +106,7 @@ namespace GeneratorV2.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на 228420.
+        ///   Ищет локализованную строку, похожую на .
         /// </summary>
         internal static string @__group {
             get {
@@ -106,7 +115,7 @@ namespace GeneratorV2.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Амогусович.
+        ///   Ищет локализованную строку, похожую на .
         /// </summary>
         internal static string @__patronymic {
             get {
@@ -124,7 +133,7 @@ namespace GeneratorV2.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Абобусов.
+        ///   Ищет локализованную строку, похожую на .
         /// </summary>
         internal static string @__surname {
             get {

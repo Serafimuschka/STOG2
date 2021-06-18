@@ -117,80 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="__hs" xml:space="preserve">
-    <value />
-    <comment>Obsolete</comment>
+  <data name="__hseml" xml:space="preserve">
+    <value>Высшая школа экономики, управления и права</value>
   </data>
-  <data name="__ministry" xml:space="preserve">
-    <value>Министерство науки и высшего образования Российской Федерации</value>
+  <data name="__hseng" xml:space="preserve">
+    <value>Высшая инженерная школа</value>
   </data>
-  <data name="__sto_advA" xml:space="preserve">
-    <value>Руководитель</value>
+  <data name="__hseog" xml:space="preserve">
+    <value>Высшая школа энергетики, нефти и газа</value>
   </data>
-  <data name="__sto_advB" xml:space="preserve">
-    <value>(подпись руководителя)</value>
+  <data name="__hsitas" xml:space="preserve">
+    <value>Высшая школа информационных технологий и автоматизированных систем</value>
   </data>
-  <data name="__sto_advC" xml:space="preserve">
-    <value>(инициалы, фамилия)</value>
+  <data name="__hsnst" xml:space="preserve">
+    <value>Высшая школа естественных наук и технологий</value>
   </data>
-  <data name="__sto_course" xml:space="preserve">
-    <value>Курс:</value>
+  <data name="__hsppe" xml:space="preserve">
+    <value>Высшая школа психологии, педагогики и физической культуры</value>
   </data>
-  <data name="__sto_date" xml:space="preserve">
-    <value>(дата)</value>
-  </data>
-  <data name="__sto_dirA" xml:space="preserve">
-    <value>Направление подготовки / специальность:</value>
-  </data>
-  <data name="__sto_dirB" xml:space="preserve">
-    <value>(код и наименование)</value>
-  </data>
-  <data name="__sto_discA" xml:space="preserve">
-    <value>По дисциплине</value>
-  </data>
-  <data name="__sto_discB" xml:space="preserve">
-    <value>По междисциплинарному курсу</value>
-  </data>
-  <data name="__sto_discC" xml:space="preserve">
-    <value>По модулю</value>
-  </data>
-  <data name="__sto_execF" xml:space="preserve">
-    <value>Выполнила обучающаяся:</value>
-  </data>
-  <data name="__sto_execM" xml:space="preserve">
-    <value>Выполнил обучающийся:</value>
-  </data>
-  <data name="__sto_group" xml:space="preserve">
-    <value>Группа:</value>
-  </data>
-  <data name="__sto_hs" xml:space="preserve">
-    <value>(наименование высшей школы / филиала / института / колледжа)</value>
-  </data>
-  <data name="__sto_markA" xml:space="preserve">
-    <value>Отметка о зачёте</value>
-  </data>
-  <data name="__sto_markB" xml:space="preserve">
-    <value>(отметка прописью)</value>
-  </data>
-  <data name="__sto_markC" xml:space="preserve">
-    <value>Признать, что проект выполнен и защищен с отметкой    </value>
-  </data>
-  <data name="__sto_prepod" xml:space="preserve">
-    <value>(Ф.И.О. руководителя, должность / уч. степень / звание)</value>
-  </data>
-  <data name="__sto_stud" xml:space="preserve">
-    <value>(Ф.И.О.)</value>
-  </data>
-  <data name="__sto_theme" xml:space="preserve">
-    <value>На тему</value>
-  </data>
-  <data name="__universityA" xml:space="preserve">
-    <value>федеральное государственное автономное образовательное учреждение</value>
-  </data>
-  <data name="__universityB" xml:space="preserve">
-    <value>высшего образования</value>
-  </data>
-  <data name="__universityC" xml:space="preserve">
-    <value>«Северный (Арктический) федеральный университет имени М.В. Ломоносова»</value>
+  <data name="__hssshic" xml:space="preserve">
+    <value>Высшая школа социально-гуманитарных наук и международной коммуникации</value>
   </data>
 </root>
