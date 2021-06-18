@@ -47,6 +47,8 @@ namespace GeneratorV2
 
 		static void Main(string[] args)
 		{
+			Console.Title = "STOGv2 ver. 2.0.0.0";
+
 			try
 			{
 				Console.ForegroundColor = ConsoleColor.Green;
