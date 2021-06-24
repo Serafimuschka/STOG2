@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
 using System.Resources;
@@ -57,7 +52,17 @@ namespace MainForm
 			 * About
 			 */
 			ToolStripMenuItem item = new ToolStripMenuItem("Пользователь");
-			item.Click += Account_Click;
+			item.DropDownItems.Add("Персональные данные");
+			item.DropDownItems[0].Click += Account_Click;
+			item.DropDownItems[0].Image =
+				Bitmap.FromHicon(SystemIcons.Information.Handle);
+			item.DropDownItems[0].DisplayStyle = 
+				ToolStripItemDisplayStyle.ImageAndText;
+			MainMenu.Items.Add(item);
+
+			item = new ToolStripMenuItem("Настройки");
+			item.DropDownItems.Add("Цветовая схема");
+			item.DropDownItems.Add("Активация");
 			MainMenu.Items.Add(item);
 
 			item = new ToolStripMenuItem("О программе");

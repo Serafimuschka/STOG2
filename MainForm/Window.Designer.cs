@@ -213,7 +213,7 @@ namespace MainForm
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(280, 198);
+            this.label7.Location = new System.Drawing.Point(300, 198);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(64, 14);
             this.label7.TabIndex = 14;
@@ -236,16 +236,16 @@ namespace MainForm
             this.prepod.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.prepod.Location = new System.Drawing.Point(112, 195);
             this.prepod.Name = "prepod";
-            this.prepod.Size = new System.Drawing.Size(162, 22);
+            this.prepod.Size = new System.Drawing.Size(182, 22);
             this.prepod.TabIndex = 16;
             this.prepod.TextChanged += new System.EventHandler(this.advisorChanged);
             // 
             // prepodIniz
             // 
             this.prepodIniz.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.prepodIniz.Location = new System.Drawing.Point(350, 195);
+            this.prepodIniz.Location = new System.Drawing.Point(370, 195);
             this.prepodIniz.Name = "prepodIniz";
-            this.prepodIniz.Size = new System.Drawing.Size(168, 22);
+            this.prepodIniz.Size = new System.Drawing.Size(148, 22);
             this.prepodIniz.TabIndex = 17;
             this.prepodIniz.TextChanged += new System.EventHandler(this.inizChanged);
             // 

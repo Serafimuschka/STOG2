@@ -13,6 +13,18 @@ using resDocument = GeneratorV2.Properties.DocumentData;
 
 namespace GeneratorV2
 {
+	public struct ConstantIndents
+    {
+		public const float __1p00 = 28.3465F;
+		public const float __1p25 = 35.43307F;
+		public const float __2p50 = 70.8661F;
+	}
+	public struct StyleSet
+    {
+		public static Word.Style __sto_sh1;
+		public static Word.Style __sto_sh2;
+		public static Word.Style __sto_dh1;
+	}
 	class Generator
 	{
 		static object oMissing = Missing.Value;
@@ -778,7 +790,7 @@ namespace GeneratorV2
 			para.Range.InsertParagraphAfter();
 
 			object oCollapseEnd = Word.WdCollapseDirection.wdCollapseEnd;
-			object oPageBreak = Word.WdBreakType.wdPageBreak;
+			object oPageBreak = Word.WdBreakType.wdSectionBreakNextPage;
 
 			range = doc.Bookmarks.get_Item(ref oEndOfDoc).Range;
 			range.Collapse(ref oCollapseEnd);
@@ -788,6 +800,16 @@ namespace GeneratorV2
 			(
 				"::title.mktg_o > task completed."
 			);
+
+			// REMOVE AFTER OPTIMIZATION!!!!!!!!!!!!!!!!!!!
+			PreloadStyles();
+
+			para = doc.Content.Paragraphs.Add(ref oMissing);
+			object __sto_dh1 = "60-02.2.3-2018 Headers D1";
+			para.set_Style(__sto_dh1);
+			para.Range.Font.AllCaps = 1;
+			para.Range.Text = "Лист для замечаний";
+			para.Range.InsertParagraphAfter();
 		}
 
 		// Makes title page from group 1n.
@@ -812,6 +834,9 @@ namespace GeneratorV2
 			string __sto_discB = "";
 			string __sto_discC = "";
 
+			string __sto_themA = "";
+			string __sto_themB = "";
+
 			string __sto_wtyp;
 			float __sto_widA;
 			float __sto_widB;
@@ -829,7 +854,7 @@ namespace GeneratorV2
 				case 0:
 					__sto_wtyp = resCommon.__sto_discA;
 					__sto_widA = 99.2126F;
-					__sto_widB = 393.44882F;
+					__sto_widB = 388.06299F;
 
 					if (len > 64)
 					{
@@ -937,6 +962,13 @@ namespace GeneratorV2
 			doc.PageSetup.BottomMargin =
 				Convert.ToSingle(resDocument.__sto_indentB);
 
+			if (dTheme.Length > 70)
+			{
+				__sto_themA = dTheme.Substring(0, 70);
+				__sto_themB = dTheme.Substring(70);
+			}
+			else __sto_themA = dTheme;
+
 			// Page processing block:
 			Word.Paragraph para;
 			para = doc.Content.Paragraphs.Add(ref oMissing);
@@ -1036,7 +1068,7 @@ namespace GeneratorV2
 			para.Range.Font.Size = (__sto_size + 3);
 			para.Range.Font.Bold = 0;
 			para.Range.Text = __sto_null;
-			para.Format.Alignment = alignCenter;
+			para.Format.Alignment = alignJustify;
 			para.Format.SpaceAfter = 0;
 			para.Format.SpaceBefore = 0;
 			para.Range.InsertParagraphAfter();
@@ -1051,7 +1083,7 @@ namespace GeneratorV2
 			);
 			table.PreferredWidthType =
 				Word.WdPreferredWidthType.wdPreferredWidthPoints;
-			table.PreferredWidth = 492.66142F;
+			table.PreferredWidth = 487.27559F;
 			table.Range.Font.Name = __sto_font;
 			table.Range.Font.Size = __sto_size;
 			table.Range.Font.Bold = 0;
@@ -1067,31 +1099,34 @@ namespace GeneratorV2
 
 			table.Cell(2, 2).Merge(table.Cell(2, 1));
 			table.Cell(2, 1).Height = 13.6063F;
-			table.Cell(2, 1).Width = 492.66142F;
+			table.Cell(2, 1).Width = 487.27559F;
 			table.Cell(2, 1).Range.Text = __sto_discB;
 			table.Cell(2, 1).Range.ParagraphFormat.Alignment = alignJustify;
 			table.Cell(2, 1).Range.Borders[bdBottom].LineStyle = __sto_line;
 
 			table.Cell(3, 2).Merge(table.Cell(3, 1));
 			table.Cell(3, 1).Height = 13.6063F;
-			table.Cell(3, 1).Width = 492.66142F;
+			table.Cell(3, 1).Width = 487.27559F;
 			table.Cell(3, 1).Range.Text = __sto_discC;
 			table.Cell(3, 1).Range.ParagraphFormat.Alignment = alignJustify;
 			table.Cell(3, 1).Range.Borders[bdBottom].LineStyle = __sto_line;
 
 			table.Cell(4, 1).Range.Text = "\n" + resCommon.__sto_theme;
 			table.Cell(4, 1).Height = 27.77953F;
-			table.Cell(4, 1).Width = 54.99213F;
-			table.Cell(4, 2).Width = 437.66929F;
+			table.Cell(4, 1).Width = 62.07874F;
+			table.Cell(4, 2).Width = 425.197F;
 			table.Cell(4, 2).Range.Borders[bdBottom].LineStyle = __sto_line;
-			table.Cell(4, 2).Range.Text = dTheme;
+			table.Cell(4, 2).Range.Text = __sto_themA;
 			table.Cell(4, 2).Range.ParagraphFormat.Alignment = alignCenter;
 			table.Cell(4, 2).VerticalAlignment =
 				Word.WdCellVerticalAlignment.wdCellAlignVerticalBottom;
 
 			table.Cell(5, 2).Merge(table.Cell(5, 1));
-			table.Cell(5, 1).Range.Font.Size = (__sto_size + 1);
-			table.Cell(5, 1).Width = 492.66142F;
+			table.Cell(5, 1).Range.Font.Size = __sto_size;
+			table.Cell(5, 1).Range.Text = __sto_themB;
+			table.Cell(5, 1).Range.ParagraphFormat.Alignment = alignJustify;
+			table.Cell(5, 1).Width = 487.27559F;
+
 			table.Cell(5, 1).Range.Borders[bdBottom].LineStyle = __sto_line;
 			table.Cell(1, 2).Range.Borders[bdBottom].LineStyle = __sto_line;
 
@@ -1213,26 +1248,29 @@ namespace GeneratorV2
 			para.Format.Alignment = alignJustify;
 			para.Format.SpaceAfter = 0;
 			para.Format.SpaceBefore = 0;
+			para.Format.LineSpacingRule = Word.WdLineSpacing.wdLineSpaceSingle;
 			para.Range.InsertParagraphAfter();
 
 			para = doc.Content.Paragraphs.Add(ref oMissing);
 			para.Range.Font.Name = __sto_font;
-			para.Range.Font.Size = (__sto_size + 3);
+			para.Range.Font.Size = (__sto_size + 2);
 			para.Range.Font.Bold = 0;
 			para.Range.Text = __sto_null;
 			para.Format.Alignment = alignJustify;
 			para.Format.SpaceAfter = 0;
 			para.Format.SpaceBefore = 0;
+			para.Format.LineSpacingRule = Word.WdLineSpacing.wdLineSpace1pt5;
 			para.Range.InsertParagraphAfter();
 
 			para = doc.Content.Paragraphs.Add(ref oMissing);
 			para.Range.Font.Name = __sto_font;
-			para.Range.Font.Size = (__sto_size + 3);
+			para.Range.Font.Size = (__sto_size + 2);
 			para.Range.Font.Bold = 0;
 			para.Range.Text = __sto_null;
 			para.Format.Alignment = alignJustify;
 			para.Format.SpaceAfter = 0;
 			para.Format.SpaceBefore = 0;
+			para.Format.LineSpacingRule = Word.WdLineSpacing.wdLineSpace1pt5;
 			para.Range.InsertParagraphAfter();
 
 			range = doc.Bookmarks.get_Item(ref oEndOfDoc).Range;
@@ -1244,6 +1282,8 @@ namespace GeneratorV2
 			);
 			table.Rows.LeftIndent = 0.0F;
 			table.Range.Font.Name = __sto_font;
+			table.Range.ParagraphFormat.LineSpacingRule = 
+				Word.WdLineSpacing.wdLineSpaceSingle;
 
 			table.Cell(2, 3).Range.Borders[bdTop].LineStyle = __sto_line;
 			table.Cell(2, 5).Range.Borders[bdTop].LineStyle = __sto_line;
@@ -1377,6 +1417,65 @@ namespace GeneratorV2
 			(
 				"::title.mktg_t > task completed."
 			);
+		}
+
+		static void AttachNotelist()
+        {
+			
+        }
+
+		static void InsertContent()
+        {
+
+        }
+
+		static void PreloadStyles()
+        {
+			Word.Style sh1 = doc.Styles.Add
+			(
+				"60-02.2.3-2018 Section H1",
+				Word.WdStyleType.wdStyleTypeParagraph
+			);
+			sh1.Font.Name = "Times New Roman";
+			sh1.Font.Size = 12.0F;
+			sh1.Font.Bold = 1;
+			sh1.ParagraphFormat.LeftIndent = ConstantIndents.__1p25;
+			sh1.ParagraphFormat.RightIndent = ConstantIndents.__2p50;
+			sh1.ParagraphFormat.SpaceAfter = 0.0F;
+			sh1.ParagraphFormat.SpaceBefore = 6.0F;
+			sh1.ParagraphFormat.Alignment = 
+				Word.WdParagraphAlignment.wdAlignParagraphJustify;
+			StyleSet.__sto_sh1 = sh1;
+
+			Word.Style sh2 = doc.Styles.Add
+			(
+				"60-02.2.3-2018 Section H2",
+				Word.WdStyleType.wdStyleTypeParagraph
+			);
+			sh2.Font.Name = "Times New Roman";
+			sh2.Font.Size = 12.0F;
+			sh2.Font.Bold = 0;
+			sh2.ParagraphFormat.LeftIndent = ConstantIndents.__1p25;
+			sh2.ParagraphFormat.SpaceAfter = 12.0F;
+			sh2.ParagraphFormat.SpaceBefore = 12.0F;
+			sh2.ParagraphFormat.Alignment =
+				Word.WdParagraphAlignment.wdAlignParagraphCenter;
+			StyleSet.__sto_sh2 = sh2;
+
+			Word.Style dh1 = doc.Styles.Add
+			(
+				"60-02.2.3-2018 Headers D1",
+				Word.WdStyleType.wdStyleTypeParagraph
+			);
+			dh1.Font.Name = "Times New Roman";
+			dh1.Font.Size = 12.0F;
+			dh1.Font.Bold = 0;
+			dh1.ParagraphFormat.LeftIndent = ConstantIndents.__1p00;
+			dh1.ParagraphFormat.SpaceAfter = 0.0F;
+			dh1.ParagraphFormat.SpaceBefore = 12.0F;
+			dh1.ParagraphFormat.Alignment =
+				Word.WdParagraphAlignment.wdAlignParagraphCenter;
+			StyleSet.__sto_dh1 = dh1;
 		}
 	}
 }
