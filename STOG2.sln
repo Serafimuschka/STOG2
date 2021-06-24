@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MainForm", "MainForm\MainFo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeneratorV2", "GeneratorV2\GeneratorV2.csproj", "{3D8BA667-55FF-450A-8FFB-313BE5D567E3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfoBrowser", "InfoBrowser\InfoBrowser.csproj", "{1A8AD7F6-1906-47BB-955E-35A3F50456AF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{3D8BA667-55FF-450A-8FFB-313BE5D567E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D8BA667-55FF-450A-8FFB-313BE5D567E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D8BA667-55FF-450A-8FFB-313BE5D567E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A8AD7F6-1906-47BB-955E-35A3F50456AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A8AD7F6-1906-47BB-955E-35A3F50456AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A8AD7F6-1906-47BB-955E-35A3F50456AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A8AD7F6-1906-47BB-955E-35A3F50456AF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

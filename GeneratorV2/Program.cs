@@ -21,9 +21,10 @@ namespace GeneratorV2
 	}
 	public struct StyleSet
     {
-		public static Word.Style __sto_sh1;
-		public static Word.Style __sto_sh2;
-		public static Word.Style __sto_dh1;
+		public static readonly string __sto_sh1 = "60-02.2.3-2018 Section H1";
+		public static readonly string __sto_sh2 = "60-02.2.3-2018 Section H2";
+		public static readonly string __sto_dh1 = "60-02.2.3-2018 Headers D1";
+		public static readonly string __sto_dft = "60-02.2.3-2018 Para DFT";
 	}
 	class Generator
 	{
@@ -805,9 +806,8 @@ namespace GeneratorV2
 			PreloadStyles();
 
 			para = doc.Content.Paragraphs.Add(ref oMissing);
-			object __sto_dh1 = "60-02.2.3-2018 Headers D1";
-			para.set_Style(__sto_dh1);
-			para.Range.Font.AllCaps = 1;
+			object __sto_sh1 = StyleSet.__sto_sh1;
+			para.set_Style(__sto_sh1);
 			para.Range.Text = "Лист для замечаний";
 			para.Range.InsertParagraphAfter();
 		}
@@ -1433,23 +1433,23 @@ namespace GeneratorV2
         {
 			Word.Style sh1 = doc.Styles.Add
 			(
-				"60-02.2.3-2018 Section H1",
+				StyleSet.__sto_sh1,
 				Word.WdStyleType.wdStyleTypeParagraph
 			);
 			sh1.Font.Name = "Times New Roman";
 			sh1.Font.Size = 12.0F;
 			sh1.Font.Bold = 1;
+			sh1.Font.AllCaps = 1;
 			sh1.ParagraphFormat.LeftIndent = ConstantIndents.__1p25;
 			sh1.ParagraphFormat.RightIndent = ConstantIndents.__2p50;
 			sh1.ParagraphFormat.SpaceAfter = 0.0F;
 			sh1.ParagraphFormat.SpaceBefore = 6.0F;
 			sh1.ParagraphFormat.Alignment = 
 				Word.WdParagraphAlignment.wdAlignParagraphJustify;
-			StyleSet.__sto_sh1 = sh1;
 
 			Word.Style sh2 = doc.Styles.Add
 			(
-				"60-02.2.3-2018 Section H2",
+				StyleSet.__sto_sh2,
 				Word.WdStyleType.wdStyleTypeParagraph
 			);
 			sh2.Font.Name = "Times New Roman";
@@ -1460,22 +1460,37 @@ namespace GeneratorV2
 			sh2.ParagraphFormat.SpaceBefore = 12.0F;
 			sh2.ParagraphFormat.Alignment =
 				Word.WdParagraphAlignment.wdAlignParagraphCenter;
-			StyleSet.__sto_sh2 = sh2;
 
 			Word.Style dh1 = doc.Styles.Add
 			(
-				"60-02.2.3-2018 Headers D1",
+				StyleSet.__sto_dh1,
 				Word.WdStyleType.wdStyleTypeParagraph
 			);
 			dh1.Font.Name = "Times New Roman";
 			dh1.Font.Size = 12.0F;
 			dh1.Font.Bold = 0;
+			dh1.Font.AllCaps = 1;
 			dh1.ParagraphFormat.LeftIndent = ConstantIndents.__1p00;
-			dh1.ParagraphFormat.SpaceAfter = 0.0F;
-			dh1.ParagraphFormat.SpaceBefore = 12.0F;
+			dh1.ParagraphFormat.SpaceAfter = 12.0F;
+			dh1.ParagraphFormat.SpaceBefore = 0.0F;
 			dh1.ParagraphFormat.Alignment =
 				Word.WdParagraphAlignment.wdAlignParagraphCenter;
-			StyleSet.__sto_dh1 = dh1;
+
+			Word.Style dft = doc.Styles.Add
+			(
+				StyleSet.__sto_dft,
+				Word.WdStyleType.wdStyleTypeParagraph
+			);
+			dft.Font.Name = "Times New Roman";
+			dft.Font.Size = 12.0F;
+			dft.Font.Bold = 0;
+			dft.ParagraphFormat.LeftIndent = ConstantIndents.__1p25;
+			dft.ParagraphFormat.SpaceAfter = 0.0F;
+			dft.ParagraphFormat.SpaceBefore = 0.0F;
+			dft.ParagraphFormat.LineSpacingRule = 
+				Word.WdLineSpacing.wdLineSpace1pt5;
+			dft.ParagraphFormat.Alignment =
+				Word.WdParagraphAlignment.wdAlignParagraphJustify;
 		}
 	}
 }

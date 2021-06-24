@@ -52,17 +52,28 @@ namespace MainForm
             this.label9 = new System.Windows.Forms.Label();
             this.args = new System.Windows.Forms.TextBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.label11 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // MainMenu
             // 
+            this.MainMenu.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.MainMenu.Location = new System.Drawing.Point(0, 0);
             this.MainMenu.Name = "MainMenu";
-            this.MainMenu.Size = new System.Drawing.Size(530, 24);
+            this.MainMenu.Size = new System.Drawing.Size(764, 24);
             this.MainMenu.TabIndex = 0;
             this.MainMenu.Text = "menuStrip1";
             // 
@@ -80,16 +91,16 @@ namespace MainForm
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(12, 24);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(220, 23);
+            this.label1.Size = new System.Drawing.Size(227, 23);
             this.label1.TabIndex = 2;
             this.label1.Text = "Конфигурация генератора";
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.pictureBox1.Location = new System.Drawing.Point(12, 50);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(506, 1);
@@ -109,6 +120,7 @@ namespace MainForm
             // 
             // discipline
             // 
+            this.discipline.BackColor = System.Drawing.Color.GhostWhite;
             this.discipline.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.discipline.Location = new System.Drawing.Point(91, 57);
             this.discipline.Name = "discipline";
@@ -118,6 +130,7 @@ namespace MainForm
             // 
             // workBox
             // 
+            this.workBox.BackColor = System.Drawing.Color.GhostWhite;
             this.workBox.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.workBox.FormattingEnabled = true;
             this.workBox.Items.AddRange(new object[] {
@@ -134,6 +147,7 @@ namespace MainForm
             // 
             // disciplineBox
             // 
+            this.disciplineBox.BackColor = System.Drawing.Color.GhostWhite;
             this.disciplineBox.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.disciplineBox.FormattingEnabled = true;
             this.disciplineBox.Items.AddRange(new object[] {
@@ -170,6 +184,7 @@ namespace MainForm
             // 
             // theme
             // 
+            this.theme.BackColor = System.Drawing.Color.GhostWhite;
             this.theme.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.theme.Location = new System.Drawing.Point(91, 113);
             this.theme.Multiline = true;
@@ -191,7 +206,7 @@ namespace MainForm
             // 
             // pictureBox2
             // 
-            this.pictureBox2.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.pictureBox2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.pictureBox2.Location = new System.Drawing.Point(12, 188);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(506, 1);
@@ -233,6 +248,7 @@ namespace MainForm
             // 
             // prepod
             // 
+            this.prepod.BackColor = System.Drawing.Color.GhostWhite;
             this.prepod.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.prepod.Location = new System.Drawing.Point(112, 195);
             this.prepod.Name = "prepod";
@@ -242,6 +258,7 @@ namespace MainForm
             // 
             // prepodIniz
             // 
+            this.prepodIniz.BackColor = System.Drawing.Color.GhostWhite;
             this.prepodIniz.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.prepodIniz.Location = new System.Drawing.Point(370, 195);
             this.prepodIniz.Name = "prepodIniz";
@@ -251,6 +268,7 @@ namespace MainForm
             // 
             // prepodInfo
             // 
+            this.prepodInfo.BackColor = System.Drawing.Color.GhostWhite;
             this.prepodInfo.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.prepodInfo.Location = new System.Drawing.Point(12, 237);
             this.prepodInfo.Multiline = true;
@@ -261,7 +279,7 @@ namespace MainForm
             // 
             // pictureBox3
             // 
-            this.pictureBox3.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.pictureBox3.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.pictureBox3.Location = new System.Drawing.Point(12, 289);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(506, 1);
@@ -281,6 +299,7 @@ namespace MainForm
             // 
             // args
             // 
+            this.args.BackColor = System.Drawing.Color.GhostWhite;
             this.args.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.args.Location = new System.Drawing.Point(12, 310);
             this.args.Name = "args";
@@ -290,18 +309,116 @@ namespace MainForm
             // 
             // pictureBox4
             // 
-            this.pictureBox4.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.pictureBox4.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.pictureBox4.Location = new System.Drawing.Point(12, 338);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(506, 1);
             this.pictureBox4.TabIndex = 22;
             this.pictureBox4.TabStop = false;
             // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pictureBox5.Location = new System.Drawing.Point(524, 27);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(1, 341);
+            this.pictureBox5.TabIndex = 23;
+            this.pictureBox5.TabStop = false;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.checkBox1.Location = new System.Drawing.Point(531, 50);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(132, 18);
+            this.checkBox1.TabIndex = 24;
+            this.checkBox1.Text = "Лист для замечаний";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label10.Location = new System.Drawing.Point(531, 33);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(222, 14);
+            this.label10.TabIndex = 25;
+            this.label10.Text = "Дополнительные параметры генерации:";
+            this.label10.UseMnemonic = false;
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.checkBox2.Location = new System.Drawing.Point(531, 74);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(89, 18);
+            this.checkBox2.TabIndex = 26;
+            this.checkBox2.Text = "Оглавление";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.checkBox3.Location = new System.Drawing.Point(531, 350);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(214, 18);
+            this.checkBox3.TabIndex = 27;
+            this.checkBox3.Text = "Список использованных источников";
+            this.checkBox3.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.GhostWhite;
+            this.textBox1.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox1.Location = new System.Drawing.Point(531, 98);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(221, 246);
+            this.textBox1.TabIndex = 28;
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.BackColor = System.Drawing.Color.GhostWhite;
+            this.numericUpDown1.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.numericUpDown1.Location = new System.Drawing.Point(703, 73);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(49, 22);
+            this.numericUpDown1.TabIndex = 29;
+            this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label11.Location = new System.Drawing.Point(630, 75);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(67, 14);
+            this.label11.TabIndex = 30;
+            this.label11.Text = "(начиная с)";
+            this.label11.UseMnemonic = false;
+            // 
             // Window
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(530, 379);
+            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.ClientSize = new System.Drawing.Size(764, 379);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.checkBox3);
+            this.Controls.Add(this.checkBox2);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.args);
             this.Controls.Add(this.label9);
@@ -327,11 +444,13 @@ namespace MainForm
             this.Controls.Add(this.MainMenu);
             this.MainMenuStrip = this.MainMenu;
             this.Name = "Window";
-            this.Text = "STO Generator 2.0";
+            this.Text = "STO Generator 2.1";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -362,6 +481,14 @@ namespace MainForm
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox args;
         private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Label label11;
     }
 }
 
